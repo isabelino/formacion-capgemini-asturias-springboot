@@ -35,6 +35,7 @@ import com.formacionspringboot.apirest.entity.Cliente;
 import com.formacionspringboot.apirest.entity.Region;
 import com.formacionspringboot.apirest.service.ClienteService;
 
+
 @RestController
 @RequestMapping("/api")
 public class ClienteRestController {
@@ -84,7 +85,7 @@ public class ClienteRestController {
 		return servicio.save(cliente);
 	}*/
 	
-	@PostMapping("/cliente")
+	@PostMapping("/clientes")
 	public ResponseEntity<?> saveCliente(@RequestBody Cliente cliente) {
 		 Cliente clienteNew= null;
 		 Map<String, Object> response = new HashMap<>();
@@ -128,7 +129,7 @@ public class ClienteRestController {
 		
 	}*/
 	
-	@PutMapping("/cliente/{id}")
+	@PutMapping("/clientes/{id}")
 	public ResponseEntity<?> updateCliente(@RequestBody Cliente cliente, @PathVariable Long id) {
 		Cliente clienteActual = servicio.findById(id);
 		
@@ -167,7 +168,7 @@ public class ClienteRestController {
 		servicio.delete(id);
 	}*/
 	
-	@DeleteMapping("/cliente/{id}")
+	@DeleteMapping("/clientes/{id}")
 	public ResponseEntity<?> deleteCliente(@PathVariable Long id) {
 		
 		Cliente clienteActual = servicio.findById(id);
@@ -211,7 +212,7 @@ public class ClienteRestController {
 	}
 	
 	
-	@PostMapping("/cliente/upload")
+	@PostMapping("/clientes/upload")
 	public ResponseEntity<?> upload(@RequestParam("archivo") MultipartFile archivo, @RequestParam("id") Long id){
 		
 		Map<String,Object> response = new HashMap<>();
